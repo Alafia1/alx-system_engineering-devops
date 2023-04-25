@@ -10,8 +10,8 @@ green='\e[1;32m'
 reset='\033[0m'
 
 echo -e "${blue}Updating and installing ${brown}Nginx${blue}.${reset}\n"
-sudo apt-get update -y -qq && \
-	 sudo apt-get install nginx -y
+sudo apt-get update -y 
+sudo apt-get install nginx -y
 
 echo -e "\n${blue}Setting up some minor stuff.${reset}\n"
 
@@ -29,7 +29,7 @@ sudo chmod -R 755 /var/www
 cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
 
 # Creating new index
-echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
 # Restarting nginx
 sudo service nginx restart
